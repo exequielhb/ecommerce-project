@@ -8,6 +8,8 @@ export const ItemList = () => {
     title: "",
     description: "",
     stock: "",
+    price: "",
+    pictureUrl: "",
   })
 
   const navigate = useNavigate()
@@ -62,6 +64,22 @@ export const ItemList = () => {
           type="number"
           name="stock"
           placeholder="stock"
+          onChange={handleChange}
+        />
+
+        <input
+          value={product.price}
+          type="number"
+          name="price"
+          placeholder="price"
+          onChange={handleChange}
+        />
+
+        <input
+          value={product.pictureUrl}
+          type="text"
+          name="pictureUrl"
+          placeholder="pictureUrl"
           onChange={handleChange}
         />
 

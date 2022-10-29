@@ -24,6 +24,18 @@ export const ItemListContainer = () => {
   }
   // ------------------------------
 
+  const deleteProduct = async (id) => {
+    try{
+      await deleteDoc(doc(db, "products", id))
+      alert("Product deleted")
+    } catch(error) {
+      console.log(error)
+    }
+    getProducts()
+  }
+
+  // ------------------------------
+
 
 
   useEffect(() => {
@@ -40,7 +52,7 @@ export const ItemListContainer = () => {
   <div className='container'>
     {products.length === 0 ? <h1>Cargando...</h1> : products.map(product => 
     <div className='card' key={product.id}>
-    <Item product={product} />
+    <Item product={product} deleteProduct={deleteProduct} />
     </div>
     )
     }
