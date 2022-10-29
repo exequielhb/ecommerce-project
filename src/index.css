@@ -13,3 +13,51 @@ a {
     color: white;
     font-size: 1.2rem;
 }
+
+.card {
+    background: #1F1F1F;
+    border-radius: 10px;
+    padding: 1rem;
+    margin: 1rem;
+    display: flex;
+    width: 300px;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-content: center;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 300px;
+    margin: 1rem;
+}
+
+input {
+    margin: 1rem;
+    padding: 0.5rem;
+    border-radius: 5px;
+    border: none;
+    font-size: 1rem;
+}
+
+button {
+    margin: 1rem;
+    padding: 0.5rem;
+    border-radius: 5px;
+    border: none;
+    font-size: 1rem;
+    background: #1F1F1F;
+    color: white;
+    cursor: pointer;
+} */
