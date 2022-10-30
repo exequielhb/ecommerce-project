@@ -1,7 +1,7 @@
 import {db} from '../../firebase/firebase'
 import {collection, getDocs, deleteDoc, doc} from 'firebase/firestore'
 import {useState, useEffect} from 'react'
-import { Item } from './Item';
+import { ItemList } from './ItemList';
 
 
 // console.log("soy la db",db);
@@ -52,7 +52,7 @@ export const ItemListContainer = () => {
   <div className='container'>
     {products.length === 0 ? <h1>Cargando...</h1> : products.map(product => 
     <div className='card' key={product.id}>
-    <Item product={product} deleteProduct={deleteProduct} />
+    <ItemList product={product} deleteProduct={deleteProduct} />
     </div>
     )
     }
