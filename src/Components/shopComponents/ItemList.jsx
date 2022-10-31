@@ -10,6 +10,7 @@ export const ItemList = ({ product, deleteProduct }) => {
   return (
     
     <>
+      {/* <h2>{product.title}</h2> */}
       <h2>{product.title}</h2>
       <img src={product.pictureUrl} alt="product" />
       <p>{product.description}</p>
@@ -18,6 +19,8 @@ export const ItemList = ({ product, deleteProduct }) => {
       <p>Price: ${product.price}</p>
       <button style={{background: "red"}} onClick={removeProduct}>Delete</button>
       <Link to={`/update/${product.id}`}><button style={{background: "green"}}>Update</button></Link>
+      <Link to={`/products/${product.id}`}><button style={{background: "blue"}}>Detail</button></Link>
+
     </>
   )
 }
