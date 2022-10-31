@@ -56,17 +56,19 @@ export const UpdateProducts = () => {
         getProduct()
     }, [])
 
+    const isDisabled = Object.values(products).some((x) => x.trim().length === 0)
+
 
   return (
     <div>
         <h1>Update Product</h1>
         <form onSubmit={handleSubmit}>
-            <input type="text" name="title" value={products.title} onChange={handleChange} />
-            <input type="text" name="description" value={products.description} onChange={handleChange} />
+            <input type="text" name="title" value={products.title} onChange={handleChange} maxLength="35" />
+            <input type="text" name="description" value={products.description} onChange={handleChange} maxLength="50" />
             <input type="number" name="stock" value={products.stock} onChange={handleChange} />
             <input type="number" name="price" value={products.price} onChange={handleChange} />
             <input type="text" name="pictureUrl" value={products.pictureUrl} onChange={handleChange} />
-            <button>Update</button>
+            <button disabled={isDisabled}>Update Product</button>
         </form>
 
     </div>

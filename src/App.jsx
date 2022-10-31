@@ -6,7 +6,10 @@ import { ItemListContainer } from './Components/shopComponents/ItemListContainer
 import { CreateProduct } from './Components/shopComponents/CreateProduct';
 import { UpdateProducts } from './Components/shopComponents/UpdateProducts';
 import { ItemDetailContainer } from './Components/shopComponents/ItemDetailContainer';
-import { ItemDetail } from './Components/shopComponents/ItemDetail';
+
+import { Login } from './views/login/Login';
+import { Register } from './views/register/Register';
+import { SuccesLogin } from './SuccesLogin';
 
 
 
@@ -20,8 +23,12 @@ function App() {
       <Route path="/" element={ <ItemListContainer /> }/>
       <Route path="/create" element={ <CreateProduct /> }/>
       <Route path="/update/:id" element={ <UpdateProducts /> }/>
-
       <Route path="/products/:id" element={ <ItemDetailContainer /> }/>
+
+      {/* login/register section */}
+      <Route path="/login" element={ <Login /> }/>
+      <Route path="/register" element={ <Register /> }/>
+      <Route path="/loginsc" element={ <SuccesLogin /> }/>
       
 
 

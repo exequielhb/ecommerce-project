@@ -25,30 +25,44 @@ export const CreateProduct = () => {
     }
   }
 
+
   const handleSubmit = (e) => {
     e.preventDefault()
     addProduct()
   }
+
 
   const handleChange = (e) => {
     setProduct({
       ...product,
       [e.target.name]: e.target.value,
     })
+
   }
+
+
+  // trim removes whitespace and input validation
+  const isDisabled = Object.values(product).some((x) => x.trim().length === 0)
+
+
 
 
   return (
     <div>
       <h1>Crear Producto</h1>
+      
       <form onSubmit={handleSubmit}>
+
         <input
           value={product.title}
           type="text"
           name="title"
           placeholder="title"
           onChange={handleChange}
+          maxLength="35"
+
         />
+
 
         <input
           value={product.description}
@@ -56,6 +70,7 @@ export const CreateProduct = () => {
           name="description"
           placeholder="description"
           onChange={handleChange}
+          maxLength="50"
         />
 
         <input
@@ -83,7 +98,7 @@ export const CreateProduct = () => {
           onChange={handleChange}
         />
 
-        <button type="submit">Crear Producto</button>
+        <button disabled={isDisabled}>Create Product</button>
       </form>
       
 
