@@ -2,25 +2,35 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 
+// import from firebase config
+import { registerUser } from "../../firebase/firebase"
+
 export const Register = () => {
 
-    const [register, setRegister] = useState({
-        email: "",
-        password: "",
-    })
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
-    const navigate = useNavigate()
+  const navigate = useNavigate();
 
-    const handleRegister = (e) => {
-        setRegister({
-            ...register,
-            [e.target.name]: e.target.value
-        })
-    }
+  const handleEmail = event => {
+    setEmail(event.target.value);
+  };
 
-    const handleSubmit = (e) => {
-        navigate('/loginsc')
-    }
+  const handlePassword = event => {
+    setPassword(event.target.value);
+  };
+
+  const handleRegister = () => {
+    registerUser(email, password)
+      .then((userCredential) => {
+        alert('User created successfully!')
+      })
+      .catch((error) => {
+        alert('Something went wrong!')
+        const errorCode = error.code;
+        console.log(errorCode);
+      });
+  }
 
   return (
     <div style={{ textAlign: 'center' }}>
@@ -29,27 +39,30 @@ export const Register = () => {
       </div>
       <div>
         <input
-            value={register.email}
-            onChange={handleRegister}
+          value={email}
+          onChange={handleEmail}
           placeholder="Type your e-mail"
         />
       </div>
       <div>
         <input
           type="password"
-            value={register.password}
-            onChange={handleRegister}
+          value={password}
+          onChange={handlePassword}
           placeholder="Type your password"
         />
       </div>
-      <button onClick={handleSubmit}>
+      <button onClick={handleRegister}>
         Submit
       </button>
       <div style={{ fontSize: '12px' }}>
-          Already have an account?
-          {' '}
-          Please <span onClick={() => navigate('/login')}
-          style={{ color: '#293462', fontWeight: 'bold', cursor: "pointer" }}>sign in</span>
+          Already have an account? Please {' '}
+          <span 
+            onClick={() => navigate('/login')}
+            style={{ color: '#293462', fontWeight: 'bold', cursor: 'pointer' }}
+          >
+            sign in
+          </span>
       </div>
     </div>
   );

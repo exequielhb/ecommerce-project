@@ -3,6 +3,16 @@ import { initializeApp } from "firebase/app";
 
 import { getFirestore } from "@firebase/firestore";
 
+// import auth
+
+import {
+  getAuth,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  signOut,
+} from "firebase/auth";
+
+
 const firebaseConfig = {
   apiKey: "AIzaSyBYNdF3QE58JX3B-dMPufKz36WSosuOMlA",
   authDomain: "ecommerce-project-63617.firebaseapp.com",
@@ -15,3 +25,27 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 export const db = getFirestore(app);
+
+// register user with firebase auth
+export const registerUser = (email, password) => {
+  const auth = getAuth();
+  return createUserWithEmailAndPassword(auth, email, password);
+}
+
+// login user with firebase auth
+export const loginUser = (email, password) => {
+  const auth = getAuth();
+  return signInWithEmailAndPassword(auth, email, password);
+}
+
+// logout user with firebase auth
+export const logoutUser = () => {
+  const auth = getAuth();
+  signOut(auth).then(() => {
+    alert('User signed out!');
+  }).catch((error) => {
+    alert('Something went wrong!');
+    const errorCode = error.code;
+    console.log(errorCode);
+  });
+}
