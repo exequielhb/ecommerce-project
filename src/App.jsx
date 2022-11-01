@@ -12,6 +12,9 @@ import { Register } from './views/register/Register';
 import { SuccesLogin } from './SuccesLogin';
 import { AuthProvider } from './context/authContext';
 import { PrivateRoutes } from './Components/privateRoutes/PrivateRoutes';
+import { CartContext } from './context/authContext/cartContext';
+
+
 
 
 
@@ -21,28 +24,32 @@ function App() {
   return <>
 
   <AuthProvider>
-    <Navbar />
-    <Routes>
-      <Route path="/" element={ <ItemListContainer /> }/>
-      {/* <Route path="/create" element={ <CreateProduct /> }/> */}
-      <Route path="/update/:id" element={ <UpdateProducts /> }/>
-      <Route path="/products/:id" element={ <ItemDetailContainer /> }/>
+    <CartContext>
+      <Navbar />
+        <Routes>
+          <Route path="/" element={ <ItemListContainer /> }/>
+          {/* <Route path="/create" element={ <CreateProduct /> }/> */}
+          <Route path="/update/:id" element={ <UpdateProducts /> }/>
+          <Route path="/products/:id" element={ <ItemDetailContainer /> }/>
 
-      {/* login/register section */}
-      <Route path="/login" element={ <Login /> }/>
-      <Route path="/register" element={ <Register /> }/>
-      <Route path="/loginsc" element={ <SuccesLogin /> }/>
-      
+          {/* login/register section */}
+          <Route path="/login" element={ <Login /> }/>
+          <Route path="/register" element={ <Register /> }/>
+          <Route path="/loginsc" element={ <SuccesLogin /> }/>
+          
 
-      {/* private routes */}
-      <Route path="/cart" element={ <PrivateRoutes> <Cart /> </PrivateRoutes>}/>
-      <Route path="/create" element={<PrivateRoutes> <CreateProduct /> </PrivateRoutes> }/>
+          {/* private routes */}
+          <Route path="/cart" element={ <PrivateRoutes> <Cart /> </PrivateRoutes>}/>
+          <Route path="/create" element={<PrivateRoutes> <CreateProduct /> </PrivateRoutes> }/>
 
 
-      <Route path="/contact" element={ <h1>Soy el contact</h1> }/>
-      <Route path="*" element={ <h1>404</h1> }/>
-    </Routes>
+          <Route path="/contact" element={ <h1>Soy el contact</h1> }/>
+          <Route path="*" element={ <h1>404</h1> }/>
+        </Routes>
+    </CartContext>
   </AuthProvider>
+
+  
 
     {/* <Footer /> */}
     

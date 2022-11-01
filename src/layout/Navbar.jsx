@@ -4,6 +4,8 @@ import { AuthContext } from "../context/authContext";
 
 import { logoutUser } from "../firebase/firebase";
 
+import {BsCart} from 'react-icons/bs';
+
 export const Navbar = () => {
   
   const { currentUser } = useContext(AuthContext)
@@ -21,7 +23,10 @@ export const Navbar = () => {
             <Link to="/contact">Contact</Link>
           </li>
           <li>
-            <Link to="/cart">Cart</Link>
+            <Link to="/cart">
+              <BsCart style={{fontSize: "2em"}} />
+              <span style={{background: "red", borderRadius: "7px"}} className="cart-count">0</span>
+            </Link>
           </li>
           <li>
             <Link to="/login">Login</Link>
@@ -31,7 +36,7 @@ export const Navbar = () => {
           </li>
         </ul>
 
-        {currentUser && <button onClick={logoutUser}>Logout</button>}
+        {currentUser && <button style={{backgroundColor: "red"}} onClick={logoutUser}>Logout</button>}
         
       </nav>
     </div>
