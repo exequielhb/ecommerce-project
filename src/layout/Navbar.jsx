@@ -6,9 +6,14 @@ import { logoutUser } from "../firebase/firebase";
 
 import {BsCart} from 'react-icons/bs';
 
+import { useCartContext } from "../context/authContext/cartContext";
+import {Cart} from '../Components/cart/Cart';
+
 export const Navbar = () => {
   
   const { currentUser } = useContext(AuthContext)
+
+  const { showCart, setshowCart, totalQuantity } = useCartContext()
   
 
   return (
@@ -24,19 +29,18 @@ export const Navbar = () => {
           </li>
           <li>
             <Link to="/cart">
-              <BsCart style={{fontSize: "2em"}} />
-              <span style={{background: "red", borderRadius: "7px"}} className="cart-count">0</span>
+              <BsCart style={{fontSize: "2em"}} onClick={setshowCart(true)} />
+              <span style={{background: "red", borderRadius: "7px"}} className="cart-count">{totalQuantity}</span>
             </Link>
           </li>
-          <li>
-            <Link to="/login">Login</Link>
-          </li>
-          <li>
-            <Link to="/register">Register</Link>
-          </li>
+          { !currentUser && (<li><Link to="/login">Login</Link></li>)}
+          { !currentUser && (<li><Link to="/signup">Signup</Link></li>)}
+          
         </ul>
 
         {currentUser && <button style={{backgroundColor: "red"}} onClick={logoutUser}>Logout</button>}
+
+        {/* {showCart && <Cart />} */}
         
       </nav>
     </div>
