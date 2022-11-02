@@ -32,7 +32,24 @@ export const CartContext = ({children}) => {
             setcartItems([...cartItems, {...product}])
         }
         alert("Product added to cart")
+        // and clear the quantity
+        setqty(1)
         
+    }
+
+    const onRemove = (product) => {
+        const updatedCartItems = cartItems.filter(item => item.id !== product.id)
+        settotalPrice(totalPrice - product.price * product.quantity)
+        settotalQuantity(totalQuantity - product.quantity)
+        setcartItems(updatedCartItems)
+
+    }
+
+
+    const clearCart = () => {
+        setcartItems([])
+        settotalPrice(0)
+        settotalQuantity(0)
     }
 
 
@@ -60,6 +77,8 @@ export const CartContext = ({children}) => {
         inQty,
         deQty,
         onAdd,
+        onRemove,
+        clearCart
     }}>
         {children}
     </Context.Provider>

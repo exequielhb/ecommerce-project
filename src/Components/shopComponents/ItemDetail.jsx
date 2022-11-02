@@ -20,7 +20,9 @@ export const ItemDetail = ({product}) => {
           <div className="cardDetailInfo">
           <h1>{item.title}</h1>
             <p>{item.description}</p>
-            <p>stock: {item.stock}</p>
+            {/* <p>stock: {item.stock}</p> */}
+            {item.stock > 0 ? <p>stock: {item.stock}</p> : <p>No stock</p>}
+
             <p>${item.price}</p>
             <Link to={"/"}> <button style={{background: "violet"}}>Back to Home</button></Link>
 
@@ -34,7 +36,8 @@ export const ItemDetail = ({product}) => {
 
             <Link to={"/cart"}> <button onClick={() => onAdd(item, qty)}>Add to Cart</button></Link>
             
-            <Link to={"/cart"}> <button style={{background: "#e53170"}}>Buy Now</button></Link>
+            {/* buy now */}
+            <Link to={"/cart"}> <button onClick={() => onAdd(item, qty)}>Buy Now</button></Link>
           </div>
         </div>
       })}
