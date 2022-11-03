@@ -9,10 +9,12 @@ import { ItemDetailContainer } from './Components/shopComponents/ItemDetailConta
 
 import { Login } from './views/login/Login';
 import { Register } from './views/register/Register';
-import { SuccesLogin } from './SuccesLogin';
 import { AuthProvider } from './context/authContext';
 import { PrivateRoutes } from './Components/privateRoutes/PrivateRoutes';
 import { CartContext } from './context/authContext/cartContext';
+import { Checkout } from './Components/cart/Checkout';
+import {PurchaseForm} from './Components/cart/PurchaseForm';
+import { Success } from './Components/cart/Success';
 
 
 
@@ -32,15 +34,18 @@ function App() {
           <Route path="/update/:id" element={ <UpdateProducts /> }/>
           <Route path="/products/:id" element={ <ItemDetailContainer /> }/>
 
+
           {/* login/register section */}
           <Route path="/login" element={ <Login /> }/>
           <Route path="/register" element={ <Register /> }/>
-          <Route path="/loginsc" element={ <SuccesLogin /> }/>
           
 
           {/* private routes */}
           <Route path="/cart" element={ <PrivateRoutes> <Cart /> </PrivateRoutes>}/>
           <Route path="/create" element={<PrivateRoutes> <CreateProduct /> </PrivateRoutes> }/>
+          <Route path="/checkout" element={<Checkout />} />
+          <Route path="/purchaseForm" element={<PurchaseForm />} />
+          <Route path="/success" element={<Success /> } />
 
 
           <Route path="/contact" element={ <h1>Soy el contact</h1> }/>

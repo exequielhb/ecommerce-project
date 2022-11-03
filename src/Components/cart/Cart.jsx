@@ -3,6 +3,7 @@ import { useRef } from "react"
 import { Link } from "react-router-dom"
 import { useCartContext } from "../../context/authContext/cartContext"
 
+
 export const Cart = () => {
   const cartRef = useRef()
 
@@ -18,8 +19,9 @@ export const Cart = () => {
           <div className="empty-cart">
             <h2>Your cart is empty</h2>
             <Link to="/" className="btn">
-              fill it
+            <button className="checkout-btn">Continue Shopping</button>
             </Link>
+            
           </div>
         )}
 
@@ -43,34 +45,30 @@ export const Cart = () => {
                 </div>
               </div>
             )
-            // return (
-            //   <div className="product" key={item.id}>
-            //     <img src={item.pictureUrl} alt={item.title} />
-            //     <div className="product-info">
-            //       <h4>{item.title}</h4>
-            //       <h5>${item.price}</h5>
-            //       <span className="remove-item" onClick={() => onRemove(item)}>remove</span>
-            //   </div>
-            //   <div className="qty">
-            //     <button className="quantity-btn" onClick={() => toggleItemQuantity(item.id, "dec")}>-</button>
-            //     <p className="quantity-number">{item.quantity}</p>
-            //     <button className="quantity-btn" onClick={() => toggleItemQuantity(item.id, "inc")}>+</button>
-            //   </div>
-            // </div>
-            // )
           })}
   </div>
+
+
   
   {cartItems.length >= 1 && (
     <div className="cart-footer">
       <h3>
         your total : <span>${totalPrice}</span>
       </h3>
-      <button className="checkout-btn">checkout</button>
+      <button className="checkout-btn">
+        <Link to="/checkout">
+          checkout
+        </Link>
+        </button>
+        <Link to="/">
+        <button className="checkout-btn">Continue Shopping</button>
+        </Link>
       <button className="clear-cart banner-btn" onClick={clearCart}>clear cart</button>
     </div>
   )}
+  
   </div>
+
   </div>
   )
 }
