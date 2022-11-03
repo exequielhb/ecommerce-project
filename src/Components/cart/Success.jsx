@@ -9,6 +9,7 @@ export const Success = () => {
     useEffect(() => {
         surprise()
     }, [])
+    
   return <>
     <div className='succes-wrapper'>
         <div className='succes'>

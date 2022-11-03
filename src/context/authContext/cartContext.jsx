@@ -78,7 +78,7 @@ export const CartContext = ({children}) => {
         deQty,
         onAdd,
         onRemove,
-        clearCart
+        clearCart,
     }}>
         {children}
     </Context.Provider>

@@ -37,6 +37,8 @@ export const PurchaseForm = () => {
     }
   }
 
+  // --------------------------------------
+
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -87,6 +89,7 @@ export const PurchaseForm = () => {
       
       <h3>Total to payment:</h3>
       <p>$ {totalPrice}</p>
+
 
       <button type="submit">Submit</button>
     </form>

@@ -15,6 +15,7 @@ import { CartContext } from './context/authContext/cartContext';
 import { Checkout } from './Components/cart/Checkout';
 import {PurchaseForm} from './Components/cart/PurchaseForm';
 import { Success } from './Components/cart/Success';
+import { Profile } from './Components/Profile';
 
 
 
@@ -46,6 +47,7 @@ function App() {
           <Route path="/checkout" element={<Checkout />} />
           <Route path="/purchaseForm" element={<PurchaseForm />} />
           <Route path="/success" element={<Success /> } />
+          <Route path="/user" element={ <Profile />} />
 
 
           <Route path="/contact" element={ <h1>Soy el contact</h1> }/>
