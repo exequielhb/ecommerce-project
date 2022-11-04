@@ -10,7 +10,8 @@ export const CartContext = ({children}) => {
     const [totalPrice, settotalPrice] = useState(0)
     const [totalQuantity, settotalQuantity] = useState(0)
     const [qty, setqty] = useState(1)
-
+    const [myFavorite, setmyFavorite] = useState([])
+    
 
     const onAdd = (product, quantity) => {
         const chekProductInCart = cartItems.find(item => item.id === product.id)
@@ -79,6 +80,10 @@ export const CartContext = ({children}) => {
         onAdd,
         onRemove,
         clearCart,
+
+        myFavorite,
+        setmyFavorite
+        
     }}>
         {children}
     </Context.Provider>

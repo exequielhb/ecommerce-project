@@ -2,6 +2,10 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 
+// toasts
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 // import from firebase config
 import { loginUser } from "../../firebase/firebase"
 
@@ -23,11 +27,11 @@ export const Login = () => {
   const handleSubmit = () => {
     loginUser(email, password)
       .then((userCredential) => {
-        alert('User signed in');
+        toast.success("Login successful")
         navigate('/');
       })
       .catch((error) => {
-        alert('Something went wrong!');
+        toast.error("Login failed")
         const errorCode = error.code;
         console.log(errorCode);
       });
@@ -65,6 +69,7 @@ export const Login = () => {
             here
           </span>
       </div>
+      <ToastContainer />
     </div>
   );
 }

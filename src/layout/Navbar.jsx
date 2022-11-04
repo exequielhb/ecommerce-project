@@ -28,6 +28,9 @@ export const Navbar = () => {
             <Link to="/contact">Contact</Link>
           </li>
           <li>
+            <Link to="/user">User</Link>
+          </li>
+          <li>
             {currentUser && (<Link to="/cart">
               <BsCart style={{fontSize: "2em"}} />
               <span style={{background: "red", borderRadius: "7px"}} className="cart-count">{totalQuantity}</span>

@@ -52,7 +52,7 @@ export const ItemListContainer = () => {
   <div className='container'>
     {products.length === 0 ? <div className='spinner'></div> : products.map(product => 
     <div className='card' key={product.id}>
-    <ItemList product={product} deleteProduct={deleteProduct} />
+    <ItemList product={product} deleteProduct={deleteProduct}  />
     </div>
     )
     }

@@ -16,8 +16,7 @@ import { Checkout } from './Components/cart/Checkout';
 import {PurchaseForm} from './Components/cart/PurchaseForm';
 import { Success } from './Components/cart/Success';
 import { Profile } from './Components/Profile';
-
-
+import { Header } from './layout/Header';
 
 
 
@@ -29,6 +28,7 @@ function App() {
   <AuthProvider>
     <CartContext>
       <Navbar />
+        <Header />
         <Routes>
           <Route path="/" element={ <ItemListContainer /> }/>
           {/* <Route path="/create" element={ <CreateProduct /> }/> */}

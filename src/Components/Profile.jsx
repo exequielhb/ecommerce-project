@@ -1,11 +1,16 @@
 
 import { db } from "../firebase/firebase";
-import { collection, getDocs, deleteDoc, doc } from "firebase/firestore";
+import { collection, getDocs } from "firebase/firestore";
 import { useState, useEffect } from "react";
+
+import { useCartContext } from "../context/authContext/cartContext";
+
 
 export const Profile = () => {
 
     const [profileHistory , setProfileHistory] = useState([])
+
+    const {myFavorite} = useCartContext()
 
     const profileCollection = collection(db, "purchase-user")
 
@@ -35,6 +40,18 @@ export const Profile = () => {
                             <h3>Last Name: {profile.surname}</h3>
                             <h3>paymen Method: {profile.payment}</h3>
                             <h3>Subtotal: {profile.totalPrice}</h3>
+                    </div>
+                )
+            })}
+        </div>
+
+        <h2>Productos favoritos</h2>
+        <div className="profileFav">
+            {myFavorite.map((fav) => {
+                return (
+                    <div className="profileFavItem" key={fav.id}>
+                            <h3>Name: {fav.title}</h3>
+                            <img src={fav.pictureUrl} alt="product" />
                     </div>
                 )
             })}
