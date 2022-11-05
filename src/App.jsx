@@ -16,7 +16,8 @@ import { Checkout } from './Components/cart/Checkout';
 import {PurchaseForm} from './Components/cart/PurchaseForm';
 import { Success } from './Components/cart/Success';
 import { Profile } from './Components/Profile';
-import { Header } from './layout/Header';
+import { GlobalStyle } from './styles/GlobalStyle';
+// import { Header } from './layout/Header';
 
 
 
@@ -28,7 +29,7 @@ function App() {
   <AuthProvider>
     <CartContext>
       <Navbar />
-        <Header />
+        {/* <Header /> */}
         <Routes>
           <Route path="/" element={ <ItemListContainer /> }/>
           {/* <Route path="/create" element={ <CreateProduct /> }/> */}
@@ -44,20 +45,20 @@ function App() {
           {/* private routes */}
           <Route path="/cart" element={ <PrivateRoutes> <Cart /> </PrivateRoutes>}/>
           <Route path="/create" element={<PrivateRoutes> <CreateProduct /> </PrivateRoutes> }/>
-          <Route path="/checkout" element={<Checkout />} />
-          <Route path="/purchaseForm" element={<PurchaseForm />} />
-          <Route path="/success" element={<Success /> } />
-          <Route path="/user" element={ <Profile />} />
+          <Route path="/checkout" element={<PrivateRoutes> <Checkout /> </PrivateRoutes>} />
+          <Route path="/purchaseForm" element={<PrivateRoutes> <PurchaseForm /> </PrivateRoutes>} />
+          <Route path="/success" element={<PrivateRoutes> <Success /> </PrivateRoutes> } />
+          <Route path="/user" element={ <PrivateRoutes> <Profile /> </PrivateRoutes> } />
 
 
           <Route path="/contact" element={ <h1>Soy el contact</h1> }/>
           <Route path="*" element={ <h1>404</h1> }/>
         </Routes>
+      <GlobalStyle />
     </CartContext>
   </AuthProvider>
 
   
-
     {/* <Footer /> */}
     
   </>

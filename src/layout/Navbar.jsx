@@ -27,9 +27,12 @@ export const Navbar = () => {
           <li>
             <Link to="/contact">Contact</Link>
           </li>
-          <li>
+          {currentUser && (<li>
             <Link to="/user">User</Link>
-          </li>
+          </li>)}
+          {/* <li>
+            <Link to="/user">User</Link>
+          </li> */}
           <li>
             {currentUser && (<Link to="/cart">
               <BsCart style={{fontSize: "2em"}} />
@@ -37,7 +40,7 @@ export const Navbar = () => {
             </Link>)}
           </li>
           { !currentUser && (<li><Link to="/login">Login</Link></li>)}
-          { !currentUser && (<li><Link to="/signup">Signup</Link></li>)}
+          { !currentUser && (<li><Link to="/register">Signup</Link></li>)}
           
         </ul>
 
