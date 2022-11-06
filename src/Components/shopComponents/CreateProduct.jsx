@@ -3,13 +3,18 @@ import { useNavigate } from "react-router-dom"
 import { db } from "../../firebase/firebase"
 import { collection, addDoc } from "firebase/firestore"
 
+
 export const CreateProduct = () => {
+
+  
   const [product, setProduct] = useState({
     title: "",
     description: "",
     stock: "",
     price: "",
     pictureUrl: "",
+    category: "",
+
   })
 
   const navigate = useNavigate()
@@ -49,6 +54,7 @@ export const CreateProduct = () => {
 
   return (
     <div>
+
       <h1>Crear Producto</h1>
       
       <form onSubmit={handleSubmit}>
@@ -61,6 +67,9 @@ export const CreateProduct = () => {
           onChange={handleChange}
           maxLength="35"
 
+          minLength={10}
+          required
+
         />
 
 
@@ -71,6 +80,10 @@ export const CreateProduct = () => {
           placeholder="description"
           onChange={handleChange}
           maxLength="50"
+
+          minLength={10}
+          required
+          max={100}
         />
 
         <input
@@ -80,6 +93,11 @@ export const CreateProduct = () => {
           name="stock"
           placeholder="stock"
           onChange={handleChange}
+
+          minLength={1}
+          maxLength={100}
+          required
+
         />
 
         <input
@@ -88,6 +106,10 @@ export const CreateProduct = () => {
           name="price"
           placeholder="price"
           onChange={handleChange}
+
+          minLength={1}
+          maxLength={10000}
+          required
         />
 
         <input
@@ -98,7 +120,22 @@ export const CreateProduct = () => {
           onChange={handleChange}
         />
 
-        <button disabled={isDisabled}>Create Product</button>
+        <h3>Category:</h3>
+        <select name="category" id="category" 
+        onChange={handleChange}
+        required
+        value={product.category}
+        >
+          <option >Home & Garden</option>
+          <option >Appareal & Accessories</option>
+          <option >Sporting</option>
+          <option >Health & Beauty</option>
+          <option >Pets</option>
+          <option >Consumer electronics</option>
+          <option >Others</option>
+        </select>
+
+        <button>Create Product</button>
       </form>
       
 

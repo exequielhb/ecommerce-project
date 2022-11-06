@@ -3,25 +3,100 @@
 
 
 
-.card {
-  background: #1f1f1f;
-  border-radius: 10px;
-  padding: 1rem;
-  margin: 1rem;
-  display: flex;
-  width: 300px;
-  flex-wrap: wrap;
-  flex-direction: column;
-  align-content: center;
-  justify-content: space-around;
-  align-items: center;
-}
 
 .container {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  padding: 4rem;
 }
+
+.card {
+  background: #1f1f1f;
+    border-radius: 10px;
+    padding: 0.8em;
+    margin: 1rem;
+    overflow: visible;
+    display: flex;
+    width: 200px;
+    flex-direction: column;
+    height: 277px;
+}
+
+div img {
+  width: 100%;
+  border-radius: 0.5rem;
+  height: 40%;
+  transition: .3s ease;
+}
+
+div img:hover {
+  transform: translateY(-25%);
+ box-shadow: rgba(226, 196, 63, 0.25) 0px 13px 47px -5px, rgba(180, 71, 71, 0.3) 0px 8px 16px -8px;
+}
+
+div h2 {
+  font-size: 1.5rem;
+  /* word-wrap: break-word; */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 100%;
+  text-align: center;
+  margin: 0.5rem 0;
+  font-weight: 400;
+}
+
+div p {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  margin: 0%;
+  padding-top: 4%;
+  font-size: .9em;
+  padding-bottom: 10px;
+}
+
+.btn-product {
+  border: none;
+  font-size: 1rem;
+  background: #1f1f1f;
+  color: white;
+  cursor: pointer;
+  width: 31%;
+}
+
+.priceFooter {
+  width: 100%;
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+ padding-top: 10px;
+ border-top: 1px solid #ddd;
+}
+
+.text-title {
+  font-weight: 900;
+ font-size: 1.2em;
+ line-height: 1.5;
+}
+
+.card-button {
+  border: 1px solid #252525;
+    display: flex;
+    padding: 0.3em;
+    cursor: pointer;
+    border-radius: 50px;
+    width: 12%;
+    background: wheat;
+}
+
+svg {
+  width: 20px;
+  height: 20px;
+ }
+
+
 
 form {
   display: flex;
@@ -38,6 +113,7 @@ input {
   border-radius: 5px;
   border: none;
   font-size: 1rem;
+  width: 60%;
 }
 
 button {
@@ -82,21 +158,6 @@ footer {
   background: #1f1f1f;
   color: white;
   margin-top: 3%;
-}
-
-div img {
-  width: 60%;
-  border-radius: 23px;
-}
-
-div h2 {
-  font-size: 1.5rem;
-  /* word-wrap: break-word; */
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  width: 100%;
-  text-align: center;
 }
 
 h1 {

@@ -32,8 +32,6 @@ function App() {
         {/* <Header /> */}
         <Routes>
           <Route path="/" element={ <ItemListContainer /> }/>
-          {/* <Route path="/create" element={ <CreateProduct /> }/> */}
-          <Route path="/update/:id" element={ <UpdateProducts /> }/>
           <Route path="/products/:id" element={ <ItemDetailContainer /> }/>
 
 
@@ -49,6 +47,7 @@ function App() {
           <Route path="/purchaseForm" element={<PrivateRoutes> <PurchaseForm /> </PrivateRoutes>} />
           <Route path="/success" element={<PrivateRoutes> <Success /> </PrivateRoutes> } />
           <Route path="/user" element={ <PrivateRoutes> <Profile /> </PrivateRoutes> } />
+          <Route path="/update/:id" element={ <PrivateRoutes> <UpdateProducts /> </PrivateRoutes> }/>
 
 
           <Route path="/contact" element={ <h1>Soy el contact</h1> }/>

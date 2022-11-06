@@ -11,7 +11,8 @@ export const UpdateProducts = () => {
         description: "",
         stock: "",
         price: "",
-        pictureUrl: ""
+        pictureUrl: "",
+        category: "",
     })
 
     const { id } = useParams()
@@ -63,11 +64,28 @@ export const UpdateProducts = () => {
     <div>
         <h1>Update Product</h1>
         <form onSubmit={handleSubmit}>
-            <input type="text" name="title" value={products.title} onChange={handleChange} maxLength="35" />
-            <input type="text" name="description" value={products.description} onChange={handleChange} maxLength="50" />
-            <input type="number" name="stock" value={products.stock} onChange={handleChange} />
-            <input type="number" name="price" value={products.price} onChange={handleChange} />
-            <input type="text" name="pictureUrl" value={products.pictureUrl} onChange={handleChange} />
+            <input type="text" name="title" value={products.title} onChange={handleChange} maxLength="35" required />
+            
+            <input type="text" name="description" value={products.description} onChange={handleChange} maxLength="50" required />
+
+            <input type="number" name="stock" value={products.stock} onChange={handleChange} required />
+
+            <input type="number" name="price" value={products.price} onChange={handleChange} required />
+
+            <input type="text" name="pictureUrl" value={products.pictureUrl} onChange={handleChange} placeholder="your image" />
+
+            <h3>Category:</h3>
+            <select name="category" value={products.category} onChange={handleChange} required>
+                <option >Home & Garden</option>
+                <option >Appareal & Accessories</option>
+                <option >Sporting</option>
+                <option >Health & Beauty</option>
+                <option >Pets</option>
+                <option >Consumer electronics</option>
+                <option >Others</option>
+            </select>
+
+
             <button disabled={isDisabled}>Update Product</button>
         </form>
 

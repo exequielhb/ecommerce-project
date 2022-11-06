@@ -2,11 +2,12 @@ import { Link, useParams } from "react-router-dom"
 import { useCartContext } from "../../context/authContext/cartContext"
 
 
+
+
 export const ItemDetail = ({product}) => {
 
-
-
   const { id } = useParams()
+
 
     // -------------------------------------------
   const { qty, inQty, deQty, onAdd } = useCartContext()
@@ -16,7 +17,9 @@ export const ItemDetail = ({product}) => {
     <>
       {product.map(item => {
         return item.id === id && <div className="cardDetail" key={item.id}>
-          <img src={item.pictureUrl} alt={item.title} />
+          {/* <img src={item.pictureUrl} alt={item.title} /> */}
+          {item.pictureUrl ? <img src={item.pictureUrl} alt={item.title} /> : <img src="https://via.placeholder.com/600/" alt={item.title} />}
+
           <div className="cardDetailInfo">
           <h1>{item.title}</h1>
             <p>{item.description}</p>
